@@ -1,0 +1,6 @@
+../App/hw/driver/gpio.c:33:6:gpioInit	1
+../App/hw/driver/gpio.c:44:6:gpioPinMode	8
+../App/hw/driver/gpio.c:94:6:gpioPinWrite	3
+../App/hw/driver/gpio.c:111:6:gpioPinRead	3
+../App/hw/driver/gpio.c:128:6:gpioPinToggle	2
+../App/hw/driver/gpio.c:143:6:cliGpio	14

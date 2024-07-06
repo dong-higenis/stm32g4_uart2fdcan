@@ -1,0 +1,14 @@
+../App/hw/driver/uart.c:65:6:uartInit	16	static
+../App/hw/driver/uart.c:84:6:uartDeInit	4	static
+../App/hw/driver/uart.c:89:6:uartIsInit	4	static
+../App/hw/driver/uart.c:94:6:uartOpen	24	static
+../App/hw/driver/uart.c:168:6:uartClose	16	static
+../App/hw/driver/uart.c:177:10:uartAvailable	24	static
+../App/hw/driver/uart.c:200:6:uartFlush	24	static
+../App/hw/driver/uart.c:218:9:uartRead	24	static
+../App/hw/driver/uart.c:237:10:uartWrite	32	static
+../App/hw/driver/uart.c:260:10:uartPrintf	292	static
+../App/hw/driver/uart.c:278:10:uartGetBaud	24	static
+../App/hw/driver/uart.c:297:10:uartGetRxCnt	16	static
+../App/hw/driver/uart.c:304:10:uartGetTxCnt	16	static
+../App/hw/driver/uart.c:312:6:cliUart	40	static
