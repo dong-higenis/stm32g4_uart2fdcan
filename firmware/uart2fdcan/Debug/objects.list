@@ -5,6 +5,7 @@
 "./App/common/hw/src/cli.o"
 "./App/common/hw/src/cli_gui.o"
 "./App/hw/driver/button.o"
+"./App/hw/driver/can.o"
 "./App/hw/driver/eeprom.o"
 "./App/hw/driver/fatfs.o"
 "./App/hw/driver/files.o"

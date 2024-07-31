@@ -20,7 +20,8 @@ extern "C" {
 #include "eeprom.h"
 #include "spi.h"
 #include "spi_flash.h"
-//#include "flash.h"
+
+#include "can.h"
 	//============== COMMON ===============
 #include "qbuffer.h"
 #include "util.h"

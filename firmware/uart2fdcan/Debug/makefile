@@ -67,8 +67,8 @@ all: main-build
 main-build: uart2fdcan.elf secondary-outputs
 
 # Tool invocations
-uart2fdcan.elf uart2fdcan.map: $(OBJS) $(USER_OBJS) D:\mcu\workspace_1.15.1\uart2fdcan\STM32G431KBUX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "uart2fdcan.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"D:\mcu\workspace_1.15.1\uart2fdcan\STM32G431KBUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="uart2fdcan.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+uart2fdcan.elf uart2fdcan.map: $(OBJS) $(USER_OBJS) D:\mcu\stm32g4_uart2fdcan\firmware\uart2fdcan\STM32G431KBUX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "uart2fdcan.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"D:\mcu\stm32g4_uart2fdcan\firmware\uart2fdcan\STM32G431KBUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="uart2fdcan.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="completion_proposal_size">
+	</section>
+	<section name="org.eclipse.cdt.ui.text.hover.CMacroExpansionExploration">
+	</section>
+	<section name="PDOMSearchPage">
+		<item key="caseSensitive" value="false"/>
+		<item key="searchFlags" value="227191"/>
+		<list key="previousPatterns">
+			<item value="canRxFifoCallback"/>
+			<item value="HAL_FDCAN_GetRxMessage"/>
+			<item value="HAL_FDCAN_STATE_BUSY"/>
+			<item value="HAL_GPIO_TogglePin"/>
+			<item value="gpioPinToggle"/>
+			<item value="gpioPinWrite"/>
+			<item value="HAL_FDCAN_Start"/>
+			<item value="HAL_FDCAN_STATE_READY"/>
+			<item value="HAL_FDCAN_ERROR_NOT_STARTED"/>
+			<item value="ErrCnt:"/>
+			<item value="ch0ErrCnt:"/>
+			<item value="fifo_lost_cnt"/>
+			<item value="can_baud_cfg_80m_data"/>
+			<item value="canAttachRxInterrupt"/>
+			<item value="HAL_GPIO_WritePin"/>
+			<item value="FDCAN1_IT0_IRQHandler"/>
+			<item value="HAL_FDCAN_RxFifo0Callback"/>
+			<item value="HAL_FDCAN_MspInit"/>
+			<item value="_USE_HW_CAN"/>
+			<item value="_DEF_CAN1"/>
+		</list>
+	</section>
+</section>

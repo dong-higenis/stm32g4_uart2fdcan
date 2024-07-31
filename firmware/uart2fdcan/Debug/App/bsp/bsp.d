@@ -1,6 +1,6 @@
 App/bsp/bsp.o: ../App/bsp/bsp.c ../App/bsp/bsp.h \
- D:/mcu/workspace_1.15.1/uart2fdcan/App/common/def.h ../Core/Inc/main.h \
- ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h \
+ D:/mcu/stm32g4_uart2fdcan/firmware/uart2fdcan/App/common/def.h \
+ ../Core/Inc/main.h ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h \
  ../Core/Inc/stm32g4xx_hal_conf.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_rcc.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_def.h \
@@ -28,11 +28,11 @@ App/bsp/bsp.o: ../App/bsp/bsp.c ../App/bsp/bsp.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_pwr_ex.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart_ex.h \
- D:/mcu/workspace_1.15.1/uart2fdcan/App/common/err_code.h \
- D:/mcu/workspace_1.15.1/uart2fdcan/App/hw/hw_def.h \
- D:/mcu/workspace_1.15.1/uart2fdcan/App/bsp/bsp.h
+ D:/mcu/stm32g4_uart2fdcan/firmware/uart2fdcan/App/common/err_code.h \
+ D:/mcu/stm32g4_uart2fdcan/firmware/uart2fdcan/App/hw/hw_def.h \
+ D:/mcu/stm32g4_uart2fdcan/firmware/uart2fdcan/App/bsp/bsp.h
 ../App/bsp/bsp.h:
-D:/mcu/workspace_1.15.1/uart2fdcan/App/common/def.h:
+D:/mcu/stm32g4_uart2fdcan/firmware/uart2fdcan/App/common/def.h:
 ../Core/Inc/main.h:
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h:
 ../Core/Inc/stm32g4xx_hal_conf.h:
@@ -62,6 +62,6 @@ D:/mcu/workspace_1.15.1/uart2fdcan/App/common/def.h:
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_pwr_ex.h:
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h:
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart_ex.h:
-D:/mcu/workspace_1.15.1/uart2fdcan/App/common/err_code.h:
-D:/mcu/workspace_1.15.1/uart2fdcan/App/hw/hw_def.h:
-D:/mcu/workspace_1.15.1/uart2fdcan/App/bsp/bsp.h:
+D:/mcu/stm32g4_uart2fdcan/firmware/uart2fdcan/App/common/err_code.h:
+D:/mcu/stm32g4_uart2fdcan/firmware/uart2fdcan/App/hw/hw_def.h:
+D:/mcu/stm32g4_uart2fdcan/firmware/uart2fdcan/App/bsp/bsp.h:
