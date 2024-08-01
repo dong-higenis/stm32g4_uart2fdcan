@@ -31,7 +31,8 @@ App/hw/driver/led.o: ../App/hw/driver/led.c \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_pwr_ex.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart_ex.h \
- D:/mcu/stm32g4_uart2fdcan/firmware/uart2fdcan/App/common/err_code.h
+ D:/mcu/stm32g4_uart2fdcan/firmware/uart2fdcan/App/common/err_code.h \
+ D:/mcu/stm32g4_uart2fdcan/firmware/uart2fdcan/App/common/hw/include/cli.h
 D:/mcu/stm32g4_uart2fdcan/firmware/uart2fdcan/App/common/hw/include/led.h:
 D:/mcu/stm32g4_uart2fdcan/firmware/uart2fdcan/App/hw/hw_def.h:
 D:/mcu/stm32g4_uart2fdcan/firmware/uart2fdcan/App/bsp/bsp.h:
@@ -66,3 +67,4 @@ D:/mcu/stm32g4_uart2fdcan/firmware/uart2fdcan/App/common/def.h:
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h:
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart_ex.h:
 D:/mcu/stm32g4_uart2fdcan/firmware/uart2fdcan/App/common/err_code.h:
+D:/mcu/stm32g4_uart2fdcan/firmware/uart2fdcan/App/common/hw/include/cli.h:

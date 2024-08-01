@@ -1,6 +1,7 @@
 #include "can.h"
 #include "qbuffer.h"
 #include "gpio.h"
+#include "led.h"
 #include "cli.h"
 
 #ifdef _USE_HW_CAN
@@ -169,7 +170,9 @@ bool canOpen(uint8_t ch, CanMode_t mode, CanFrame_t frame, CanBaud_t baud,
 	uint32_t tdc_offset;
 
 	if (ch >= CAN_MAX_CH)
-		return false;
+	{
+		goto open_error;
+	}
 	can_tbl[ch].p_hfdcan = &hfdcan1;
 	p_can = can_tbl[ch].p_hfdcan;
 
@@ -211,11 +214,11 @@ bool canOpen(uint8_t ch, CanMode_t mode, CanFrame_t frame, CanBaud_t baud,
 	}
 
 	if (ret != true) {
-		return false;
+		goto open_error;
 	}
 
 	if (HAL_FDCAN_Init(p_can) != HAL_OK) {
-		return false;
+		goto open_error;
 	}
 
 	canSetFilterType(CAN_ID_MASK);
@@ -224,27 +227,31 @@ bool canOpen(uint8_t ch, CanMode_t mode, CanFrame_t frame, CanBaud_t baud,
 
 	if (HAL_FDCAN_ConfigGlobalFilter(p_can, FDCAN_REJECT, FDCAN_REJECT,
 	FDCAN_FILTER_REMOTE, FDCAN_FILTER_REMOTE) != HAL_OK) {
-		return false;
+		goto open_error;
 	}
 	if (HAL_FDCAN_ActivateNotification(p_can, can_tbl[ch].enable_int, 0)
 			!= HAL_OK) {
-		return false;
+		goto open_error;
 	}
 
 	tdc_offset = p_can->Init.DataPrescaler * p_can->Init.DataTimeSeg1;
 
 	if (HAL_FDCAN_ConfigTxDelayCompensation(p_can, tdc_offset, 0) != HAL_OK)
-		return false;
+		goto open_error;
 	if (HAL_FDCAN_EnableTxDelayCompensation(p_can) != HAL_OK)
-		return false;
+		goto open_error;
 
 	if (HAL_FDCAN_Start(p_can) != HAL_OK) {
-		return false;
+		goto open_error;
 	}
 
 	can_tbl[ch].is_open = true;
 
 	return ret;
+
+open_error:
+	return false;
+
 }
 
 bool canIsOpen(uint8_t ch) {

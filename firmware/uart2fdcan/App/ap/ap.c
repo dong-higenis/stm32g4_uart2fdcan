@@ -1,6 +1,6 @@
 #include "ap.h"
 
-
+bool led_blink_500ms_flag = false;
 
 void apInit (void)
 {
@@ -8,33 +8,63 @@ void apInit (void)
   logBoot(false);
 }
 
+void canLedStatus()
+{
+	if(canIsOpen(0))
+	{
+		ledOn(LED_LINK_CH);
+	}
+	else
+	{
+		ledOff(LED_LINK_CH);
+		ledOff(LED_ERROR_CH);
+		return;
+	}
+
+	uint32_t err = canGetError(0);
+
+	if(err == CAN_ERR_BUS_OFF) //bus off
+	{
+		ledOn(LED_ERROR_CH);
+	}
+	else if(err != CAN_ERR_NONE) //CAN_ERR_WARNING or CAN_ERR_PASSIVE
+	{
+		if(led_blink_500ms_flag)
+		{
+			ledOn(LED_ERROR_CH);
+		}
+		else
+		{
+			ledOff(LED_ERROR_CH);
+		}
+	}
+	else
+	{
+		ledOff(LED_ERROR_CH);
+	}
+}
+
 void apMain (void)
 {
 	uint32_t pre_time;
-	static uint8_t ledStep = 0;
 	pre_time = millis ();
-	ledOff (_DEF_LED1);
-	ledOff (_DEF_LED2);
-	ledOff (_DEF_LED3);
+	ledOff(LED_STATUS_CH);
 	while (1)
 	{
-		if (millis () - pre_time >= 100)
+		if (millis () - pre_time >= 500)
 		{
 			pre_time = millis ();
-			switch(ledStep)
-			{
-			case 0:
-				ledToggle (_DEF_LED1);
-				break;
-			case 1:
-				ledToggle (_DEF_LED2);
-				break;
-			case 2:
-				ledToggle (_DEF_LED3);
-				break;
-			}
-			ledStep = ((ledStep+1) % 3);
+			led_blink_500ms_flag = !led_blink_500ms_flag;
 		}
+		if(led_blink_500ms_flag)
+		{
+			ledOn(LED_STATUS_CH);
+		}
+		else
+		{
+			ledOff(LED_STATUS_CH);
+		}
+		canLedStatus();
 		cliMain();
 	}
 }

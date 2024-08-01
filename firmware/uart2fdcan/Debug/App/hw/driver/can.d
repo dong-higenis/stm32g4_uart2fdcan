@@ -34,6 +34,7 @@ App/hw/driver/can.o: ../App/hw/driver/can.c \
  D:/mcu/stm32g4_uart2fdcan/firmware/uart2fdcan/App/common/err_code.h \
  D:/mcu/stm32g4_uart2fdcan/firmware/uart2fdcan/App/common/core/qbuffer.h \
  D:/mcu/stm32g4_uart2fdcan/firmware/uart2fdcan/App/common/hw/include/gpio.h \
+ D:/mcu/stm32g4_uart2fdcan/firmware/uart2fdcan/App/common/hw/include/led.h \
  D:/mcu/stm32g4_uart2fdcan/firmware/uart2fdcan/App/common/hw/include/cli.h
 D:/mcu/stm32g4_uart2fdcan/firmware/uart2fdcan/App/common/hw/include/can.h:
 D:/mcu/stm32g4_uart2fdcan/firmware/uart2fdcan/App/hw/hw_def.h:
@@ -71,4 +72,5 @@ D:/mcu/stm32g4_uart2fdcan/firmware/uart2fdcan/App/common/def.h:
 D:/mcu/stm32g4_uart2fdcan/firmware/uart2fdcan/App/common/err_code.h:
 D:/mcu/stm32g4_uart2fdcan/firmware/uart2fdcan/App/common/core/qbuffer.h:
 D:/mcu/stm32g4_uart2fdcan/firmware/uart2fdcan/App/common/hw/include/gpio.h:
+D:/mcu/stm32g4_uart2fdcan/firmware/uart2fdcan/App/common/hw/include/led.h:
 D:/mcu/stm32g4_uart2fdcan/firmware/uart2fdcan/App/common/hw/include/cli.h:

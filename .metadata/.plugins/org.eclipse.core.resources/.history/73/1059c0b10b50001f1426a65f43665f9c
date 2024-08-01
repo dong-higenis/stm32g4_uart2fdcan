@@ -1,0 +1,123 @@
+#include "led.h"
+
+
+#ifdef _USE_HW_LED
+
+
+
+
+const typedef struct 
+{
+  GPIO_TypeDef *port;
+  uint16_t      pin;
+  GPIO_PinState on_state;
+  GPIO_PinState off_state;
+} led_tbl_t;
+
+
+static led_tbl_t led_tbl[LED_MAX_CH] = 
+{
+	{GPIOB, GPIO_PIN_4,  GPIO_PIN_RESET, GPIO_PIN_SET},
+	{GPIOB, GPIO_PIN_5,  GPIO_PIN_RESET, GPIO_PIN_SET},
+	{GPIOB, GPIO_PIN_6,  GPIO_PIN_RESET, GPIO_PIN_SET},
+};
+
+
+#ifdef _USE_HW_CLI
+static void cliLed(cli_args_t *args);
+#endif
+
+
+
+bool ledInit(void)
+{
+#ifdef _USE_HW_CLI
+  cliAdd("led", cliLed);
+#endif
+  return true;
+}
+
+void ledOn(uint8_t ch)
+{
+  if (ch >= LED_MAX_CH) return;
+
+  HAL_GPIO_WritePin(led_tbl[ch].port, led_tbl[ch].pin, led_tbl[ch].on_state);
+}
+
+void ledOff(uint8_t ch)
+{
+  if (ch >= LED_MAX_CH) return;
+
+  HAL_GPIO_WritePin(led_tbl[ch].port, led_tbl[ch].pin, led_tbl[ch].off_state);
+}
+
+void ledToggle(uint8_t ch)
+{
+  if (ch >= LED_MAX_CH) return;
+
+  HAL_GPIO_TogglePin(led_tbl[ch].port, led_tbl[ch].pin);
+}
+
+#ifdef _USE_HW_CLI
+void cliLed(cli_args_t *args)
+{
+  bool ret = false;
+
+  if (args->argc == 1 && args->isStr(0, "info"))
+  {
+    for (int i=0; i<UART_MAX_CH; i++)
+    {
+      cliPrintf("_DEF_UART%d : %s, %d bps\n", i+1, uart_hw_tbl[i].p_msg, uartGetBaud(i));
+    }
+    ret = true;
+  }
+
+  if (args->argc == 2 && args->isStr(0, "test"))
+  {
+    uint8_t uart_ch;
+
+    uart_ch = constrain(args->getData(1), 1, UART_MAX_CH) - 1;
+
+    if (uart_ch != cliGetPort())
+    {
+      uint8_t rx_data;
+
+      while(1)
+      {
+        if (uartAvailable(uart_ch) > 0)
+        {
+          rx_data = uartRead(uart_ch);
+          cliPrintf("<- _DEF_UART%d RX : 0x%X\n", uart_ch + 1, rx_data);
+        }
+
+        if (cliAvailable() > 0)
+        {
+          rx_data = cliRead();
+          if (rx_data == 'q')
+          {
+            break;
+          }
+          else
+          {
+            uartWrite(uart_ch, &rx_data, 1);
+            cliPrintf("-> _DEF_UART%d TX : 0x%X\n", uart_ch + 1, rx_data);
+          }
+        }
+      }
+    }
+    else
+    {
+      cliPrintf("This is cliPort\n");
+    }
+    ret = true;
+  }
+
+  if (ret == false)
+  {
+    cliPrintf("uart info\n");
+    cliPrintf("uart test ch[1~%d]\n", HW_UART_MAX_CH);
+  }
+}
+#endif
+#endif
+
